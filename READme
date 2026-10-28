@@ -1,0 +1,68 @@
+# Network Incident Report & NIST CSF Analysis
+
+## Project Overview
+This project is a cybersecurity incident report analyzing a simulated **Denial-of-Service (DoS) ICMP Flood Attack** on a multimedia company's internal network. Using the **National Institute of Standards and Technology Cybersecurity Framework (NIST CSF)**, this report outlines how the organization identified, protected against, detected, responded to, and recovered from the security event.
+
+---
+
+## Executive Summary / Scenario
+* **Type of Incident:** Denial-of-Service (DoS) — ICMP Flood Attack.
+* **Duration:** Approximately 2 hours.
+* **Primary Cause:** An unconfigured/misconfigured firewall that permitted excessive incoming ICMP traffic.
+* **Impact:** Disruption of internal network connectivity, preventing legitimate users from accessing network services and resources.
+* **Resolution:** The incident management team blocked incoming ICMP packets, temporarily stopped non-essential services, and restored critical operations. Remediation included implementing firewall rate limiting, source IP validation, network monitoring tools, and an IDS/IPS.
+
+---
+
+## NIST Cybersecurity Framework (CSF) Analysis
+
+### 1. Identify
+* **Attack Type:** ICMP flood DoS, overwhelming bandwidth and processing resources.
+* **Affected Systems:** Internal network infrastructure, network devices, and dependent resources. The firewall served as the primary security weakness.
+* **Key Risks:** Incorrect firewall rules, lack of traffic filtering, missing ICMP rate limits, insufficient early detection monitoring, and potential IP spoofing.
+* **Action:** Conduct regular audits of all network assets, review user access privileges, and fix configuration gaps based on risk priority.
+
+### 2. Protect
+* **Immediate Action Plan:**
+  1. Configure firewalls securely (deny unauthorized traffic by default).
+  2. Implement strict ICMP rate limiting.
+  3. Enable source IP validation (anti-spoofing controls).
+  4. Deploy an Intrusion Detection and Prevention System (IDS/IPS).
+  5. Segment the network to isolate critical systems.
+  6. Apply regular security patches to all network hardware.
+  7. Establish documented secure configuration baselines.
+  8. Provide cybersecurity awareness training for employees.
+
+### 3. Detect
+* **Detection Plan:**
+  1. Monitor network traffic (bandwidth, latency, packet rates).
+  2. Establish a baseline for normal ICMP activity and alert on sudden spikes.
+  3. Configure IDS/IPS alerts for traffic floods and spoofing indicators.
+  4. Centralize security logs using a SIEM system.
+  5. Monitor user access, failed logins, and admin account activity.
+  6. Test detection capabilities through authorized simulated exercises.
+
+### 4. Respond
+* **Incident Response Plan:**
+  1. Identify and validate the incident via logs and alerts.
+  2. Notify the incident response team and management.
+  3. Contain the attack using rate-limiting, firewall rules, and upstream ISP filtering.
+  4. Protect critical services by temporarily halting non-essential processes.
+  5. Preserve forensic evidence (packet captures, logs, timestamps).
+  6. Investigate root causes and check for secondary compromises.
+  7. Neutralize threats, document the incident, and conduct post-incident reviews.
+
+### 5. Recover
+* **Recovery Plan:**
+  1. Assess impacted infrastructure and services.
+  2. Restore critical business applications before non-critical ones.
+  3. Verify firewall configurations and ICMP limits are functional.
+  4. Test network connectivity for legitimate users.
+  5. Monitor services continuously for recurring anomalies.
+  6. Validate system integrity and restore clean configurations from verified backups if needed.
+  7. Conduct recovery and backup restoration tests regularly.
+
+---
+
+## Conclusion
+This project demonstrates how a single firewall misconfiguration can severely impact business operations. By applying the five functions of the NIST CSF (**Identify, Protect, Detect, Respond, Recover**), organizations can build a structured, resilient defense strategy against future cyber threats.
